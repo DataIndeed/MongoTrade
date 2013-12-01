@@ -1,0 +1,208 @@
+package org.wikijava.stockfriend.backend.data;
+
+import com.csvreader.CsvReader;
+ 
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.StringReader;
+import java.util.GregorianCalendar;
+ 
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.HttpException;
+import org.apache.commons.httpclient.HttpMethod;
+import org.apache.commons.httpclient.methods.GetMethod;
+import org.wikijava.stockfriend.model.DownloaderException;
+import org.wikijava.stockfriend.model.calendar.TradingDay;
+import org.wikijava.stockfriend.model.calendar.TradingDaysRangeA;
+import org.wikijava.stockfriend.model.product.Product;
+import org.wikijava.stockfriend.model.quotations.DataRangeType;
+import org.wikijava.stockfriend.model.quotations.OriginalDataRange;
+import org.wikijava.stockfriend.model.quotations.StandardQuote;
+import org.wikijava.stockfriend.model.quotations.StandardValue;
+ 
+/**
+ * 
+ * @implements DayDownloaderI
+ * 
+ * @author Giulio
+ */
+public class YahooDownloader implements DayDownloaderI {
+ 
+	/**
+	 * Creates a new instance of LoadEndOfDay
+	 * 
+	 * @throws DownloaderException
+	 */
+	private Product doYahooDownload(Product product, TradingDay start,
+			TradingDay end) throws DownloaderException {
+		assert start != null;
+		assert end != null;
+		assert !start.isAfter(end);
+		assert product != null;
+		assert product.getSymbol() != null;
+		assert !product.getSymbol().isEmpty();
+ 
+		// creating the request URI
+		String uri = buildURI(product, start, end);
+ 
+		System.out.println("calling :" + uri);
+ 
+		// doing the call
+		String responseBody = doCall(uri);
+		// System.out.println(responseBody);
+ 
+		// parse results
+		try {
+			product = extractValues(product, responseBody);
+		} catch (IOException e) {
+			throw new DownloaderException(e);
+		}
+ 
+		return product;
+	}
+ 
+	private Product extractValues(Product product, String responseBody)
+			throws IOException {
+ 
+		// intantiate the original data ranges, and add them to the product
+		OriginalDataRange openDR = new OriginalDataRange(product,
+				DataRangeType.Open);
+		OriginalDataRange closeDR = new OriginalDataRange(product,
+				DataRangeType.Close);
+		OriginalDataRange maxDR = new OriginalDataRange(product,
+				DataRangeType.Max);
+		OriginalDataRange minDR = new OriginalDataRange(product,
+				DataRangeType.Min);
+		OriginalDataRange adjDR = new OriginalDataRange(product,
+				DataRangeType.Adjusted);
+		OriginalDataRange volumeDR = new OriginalDataRange(product,
+				DataRangeType.Volume);
+ 
+		// add the ranges to the product
+		product.addRange(openDR);
+		product.addRange(closeDR);
+		product.addRange(maxDR);
+		product.addRange(minDR);
+		product.addRange(adjDR);
+		product.addRange(volumeDR);
+ 
+		CsvReader csvReader = new CsvReader(new StringReader(responseBody));
+		csvReader.readHeaders();
+ 
+		// populating the lists
+		while (csvReader.readRecord()) {
+			// Date,Open,High,Low,Close,Volume,Adj Close
+			// extract & parse data
+			String dateStr = csvReader.get(0);
+			String openStr = csvReader.get(1);
+			String highStr = csvReader.get(2);
+			String lowStr = csvReader.get(3);
+			String closeStr = csvReader.get(4);
+			String volumeStr = csvReader.get(5);
+			String adjStr = csvReader.get(6);
+ 
+			// convert the strings to the appropriate classes
+			String[] splitted = dateStr.split("-");
+			int year = Integer.parseInt(splitted[0]);
+			int month = Integer.parseInt(splitted[1]) - 1;
+			int day = Integer.parseInt(splitted[2]);
+			TradingDay date = TradingDay.getSingleton(new GregorianCalendar(
+					year, month, day));
+			Double open = Double.parseDouble(openStr);
+			Double close = Double.parseDouble(closeStr);
+			Double high = Double.parseDouble(highStr);
+			Double low = Double.parseDouble(lowStr);
+			Double volume = Double.parseDouble(volumeStr);
+			Double adj = Double.parseDouble(adjStr);
+ 
+			// Create objects
+			StandardQuote openQuote = new StandardQuote(product, date,
+					new StandardValue(open));
+			StandardQuote closeQuote = new StandardQuote(product, date,
+					new StandardValue(close));
+			StandardQuote maxQuote = new StandardQuote(product, date,
+					new StandardValue(high));
+			StandardQuote minQuote = new StandardQuote(product, date,
+					new StandardValue(low));
+			StandardQuote volumeQuote = new StandardQuote(product, date,
+					new StandardValue(volume));
+			StandardQuote adjQuote = new StandardQuote(product, date,
+					new StandardValue(adj));
+ 
+			// add today rates to the lists.
+			openDR.add(openQuote);
+			closeDR.add(closeQuote);
+			maxDR.add(maxQuote);
+			minDR.add(minQuote);
+			volumeDR.add(volumeQuote);
+			adjDR.add(adjQuote);
+		}
+ 
+		return product;
+	}
+	private String doCall(String uri) throws DownloaderException {
+		HttpClient httpClient = new HttpClient();
+		HttpMethod getMethod = new GetMethod(uri);
+ 
+		try {
+			int response = httpClient.executeMethod(getMethod);
+ 
+			if (response != 200) {
+				throw new DownloaderException("HTTP problem, httpcode: "
+						+ response);
+			}
+ 
+			InputStream stream = getMethod.getResponseBodyAsStream();
+			String responseText = responseToString(stream);
+ 
+			return responseText;
+		} catch (HttpException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+ 
+		return null;
+	}
+ 
+	private String responseToString(InputStream stream) throws IOException {
+		BufferedInputStream bi = new BufferedInputStream(stream);
+ 
+		StringBuilder sb = new StringBuilder();
+ 
+		byte[] buffer = new byte[1024];
+		int bytesRead = 0;
+		while ((bytesRead = bi.read(buffer)) != -1) {
+			sb.append(new String(buffer, 0, bytesRead));
+		}
+		return sb.toString();
+	}
+ 
+	private String buildURI(Product product, TradingDay start, TradingDay end) {
+		StringBuilder uri = new StringBuilder();
+		uri.append("http://ichart.finance.yahoo.com/table.csv");
+		uri.append("?s=").append(product.getSymbol());
+		uri.append("&a=").append(start.getMonth());
+		uri.append("&b=").append(start.getDay());
+		uri.append("&c=").append(start.getYear());
+		uri.append("&d=").append(end.getMonth());
+		uri.append("&e=").append(end.getDay());
+		uri.append("&f=").append(end.getYear());
+		uri.append("&g=d");
+		uri.append("&ignore=.csv");
+ 
+		return uri.toString();
+	}
+ 
+	@Override
+	public Product getQuotationRange(Product product, TradingDaysRangeA range)
+			throws DownloaderException {
+ 
+		Product result = doYahooDownload(product, range.getStart(), range
+				.getEnd());
+		return result;
+	}
+}
