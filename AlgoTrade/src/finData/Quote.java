@@ -7,7 +7,7 @@ import java.util.Date;
  * @author Elier
  * @since 2013-12-09
  */
-public class Tricker implements Comparable<Tricker> {
+public class Quote implements Comparable<Quote> {
     private String name;
     private Date date;
     private double open;
@@ -28,7 +28,7 @@ public class Tricker implements Comparable<Tricker> {
      * @param adjClose
      * @param volume
      */
-    public Tricker(String name, Date date, double open, double high, double low, double close, double adjClose, long volume) {
+    public Quote(String name, Date date, double open, double high, double low, double close, double adjClose, long volume) {
         setName(name);
         setDate(date);
         setOpen(open);
@@ -40,96 +40,96 @@ public class Tricker implements Comparable<Tricker> {
     }
 
     /**
-     * Get the tricker name
-     * @return tricker name
+     * Get the quote name
+     * @return quote name
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Set the tricker name
-     * @param name tricker name
+     * Set the quote name
+     * @param name quote name
      */
     public void setName(String name) {
         this.name = name.toUpperCase();
     }
 
     /**
-     * Get the tricker date
-     * @return tricker date
+     * Get the quote date
+     * @return quote date
      */
     public Date getDate() {
         return date;
     }
 
     /**
-     * Set the tricker date
-     * @param date tricker date
+     * Set the quote date
+     * @param date quote date
      */
     public void setDate(Date date) {
         this.date = date;
     }
 
     /**
-     * Get the tricker open price
-     * @return tricker open price
+     * Get the quote open price
+     * @return quote open price
      */
     public double getOpen() {
         return open;
     }
 
     /**
-     * Set the tricker open price
-     * @param open tricker open price
+     * Set the quote open price
+     * @param open quote open price
      */
     public void setOpen(double open) {
         this.open = open;
     }
 
     /**
-     * Get the tricker highest price
-     * @return tricker highest price
+     * Get the quote highest price
+     * @return quote highest price
      */
     public double getHigh() {
         return high;
     }
 
     /**
-     * Set the tricker highest price
-     * @param high tricker highest price
+     * Set the quote highest price
+     * @param high quote highest price
      */
     public void setHigh(double high) {
         this.high = high;
     }
 
     /**
-     * Get the tricker lowest price
-     * @return tricker lowest price
+     * Get the quote lowest price
+     * @return quote lowest price
      */
     public double getLow() {
         return low;
     }
 
     /**
-     * Set the tricker lowest price
-     * @param low tricker lowest price
+     * Set the quote lowest price
+     * @param low quote lowest price
      */
     public void setLow(double low) {
         this.low = low;
     }
 
     /**
-     * Get the tricker close price
-     * @return tricker close price
+     * Get the quote close price
+     * @return quote close price
      */
     public double getClose() {
         return close;
     }
 
     /**
-     * Set the tricker close price
-     * @param close tricker close price
+     * Set the quote close price
+     * @param close quote close price
      */
     public void setClose(double close) {
         this.close = close;
@@ -152,16 +152,16 @@ public class Tricker implements Comparable<Tricker> {
     }
 
     /**
-     * Get the tricker volume
-     * @return tricker volume
+     * Get the quote volume
+     * @return quote volume
      */
     public long getVolume() {
         return volume;
     }
 
     /**
-     * Set the tricker volume
-     * @param volume tricker volume
+     * Set the quote volume
+     * @param volume quote volume
      */
     public void setVolume(long volume) {
         this.volume = volume;
@@ -178,7 +178,7 @@ public class Tricker implements Comparable<Tricker> {
 
     /**
      * Equals
-     * @param obj other tricker objecto to comapre to
+     * @param obj other quote objecto to comapre to
      * @return
      */
     @Override
@@ -187,10 +187,10 @@ public class Tricker implements Comparable<Tricker> {
             return false;
         if (obj == this)
             return true;
-        if (!(obj instanceof Tricker))
+        if (!(obj instanceof Quote))
             return false;
 
-        Tricker t = (Tricker) obj;
+        Quote t = (Quote) obj;
 
         return new String(name).equals(t.getName()) &&
                 new Date(date.getTime()).equals(t.getDate());
@@ -204,16 +204,16 @@ public class Tricker implements Comparable<Tricker> {
 
     /**
      *
-     * @param t the other tricker to compare to
+     * @param t the other quote to compare to
      * @return
      */
     @Override
-    public int compareTo(Tricker t) {
+    public int compareTo(Quote t) {
         return this.date.compareTo(t.date);
     }
 
     /**
-     * String format of the Tricker object. Mainly for debugging proposal
+     * String format of the Quote object. Mainly for debugging proposal
      * @return
      */
     @Override

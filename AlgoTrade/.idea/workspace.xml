@@ -14,8 +14,8 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/MongoDB.java" changelist="6dd3a489-ce91-42e0-bb82-de7d858ac59e" time="1382798956932" ignored="false" />
     <file path="/pom.xml" changelist="6dd3a489-ce91-42e0-bb82-de7d858ac59e" time="1382582010791" ignored="false" />
-    <file path="/GetYahooData.java" changelist="6dd3a489-ce91-42e0-bb82-de7d858ac59e" time="1386609399801" ignored="false" />
-    <file path="/fragment.java" changelist="6dd3a489-ce91-42e0-bb82-de7d858ac59e" time="1386614572063" ignored="false" />
+    <file path="/GetYahooData.java" changelist="6dd3a489-ce91-42e0-bb82-de7d858ac59e" time="1386629698174" ignored="false" />
+    <file path="/fragment.java" changelist="6dd3a489-ce91-42e0-bb82-de7d858ac59e" time="1386629761560" ignored="false" />
     <file path="/UpdateFinDB.java" changelist="6dd3a489-ce91-42e0-bb82-de7d858ac59e" time="1382803431858" ignored="false" />
     <file path="/NumericalUtil.java" changelist="6dd3a489-ce91-42e0-bb82-de7d858ac59e" time="1382740821985" ignored="false" />
     <file path="C:/apache-maven-3.1.1-bin/apache-maven-3.1.1/bin/M101J/src/main/java/com/tengen/App.java" changelist="6dd3a489-ce91-42e0-bb82-de7d858ac59e" time="1382815887914" ignored="false" />
@@ -25,8 +25,9 @@
     <file path="C:/mongodb2_2/example/final-problem4/src/main/java/course/Question8.java" changelist="6dd3a489-ce91-42e0-bb82-de7d858ac59e" time="1385406830437" ignored="false" />
     <file path="/Question8.java" changelist="6dd3a489-ce91-42e0-bb82-de7d858ac59e" time="1385406823163" ignored="false" />
     <file path="/Tricker.java" changelist="6dd3a489-ce91-42e0-bb82-de7d858ac59e" time="1386613588045" ignored="false" />
-    <file path="/TrickerTest.java" changelist="6dd3a489-ce91-42e0-bb82-de7d858ac59e" time="1386615277241" ignored="false" />
-    <file path="/Dummy.txt" changelist="6dd3a489-ce91-42e0-bb82-de7d858ac59e" time="1386614529793" ignored="false" />
+    <file path="/TrickerTest.java" changelist="6dd3a489-ce91-42e0-bb82-de7d858ac59e" time="1386629720794" ignored="false" />
+    <file path="/Dummy.txt" changelist="6dd3a489-ce91-42e0-bb82-de7d858ac59e" time="1386629750504" ignored="false" />
+    <file path="/Quote.java" changelist="6dd3a489-ce91-42e0-bb82-de7d858ac59e" time="1386629633654" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +91,7 @@
       <file leaf-file-name="UpdateFinDB.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FinDAO/UpdateFinDB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="22" selection-start="3689" selection-end="3689" vertical-scroll-proportion="0.0">
+            <state line="91" column="0" selection-start="3689" selection-end="3689" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -108,16 +109,16 @@
       <file leaf-file-name="MongoDB.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FinDAO/MongoDB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="20" selection-start="452" selection-end="452" vertical-scroll-proportion="0.0">
+            <state line="20" column="17" selection-start="452" selection-end="452" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tricker.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/finData/Tricker.java">
+      <file leaf-file-name="Quote.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/finData/Quote.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="20" selection-start="567" selection-end="694" vertical-scroll-proportion="0.0">
+            <state line="47" column="5" selection-start="1015" selection-end="1015" vertical-scroll-proportion="-1.98">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -125,10 +126,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TrickerTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/finData/TrickerTest.java">
+      <file leaf-file-name="QuoteTest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/finData/QuoteTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="139" column="74" selection-start="2972" selection-end="2972" vertical-scroll-proportion="0.0">
+            <state line="129" column="45" selection-start="2770" selection-end="2770" vertical-scroll-proportion="0.900463">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -136,10 +137,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetYahooData.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="GetYahooData.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/finData/GetYahooData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="429" selection-end="429" vertical-scroll-proportion="0.3340249">
+            <state line="17" column="37" selection-start="337" selection-end="337" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -177,7 +178,7 @@
       <file leaf-file-name="QueryDetail.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/finData/QueryDetail.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="29" selection-start="515" selection-end="515" vertical-scroll-proportion="0.0">
+            <state line="16" column="19" selection-start="515" selection-end="515" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -200,7 +201,9 @@
         <option value="$PROJECT_DIR$/src/FinDAO/MongoDB.java" />
         <option value="$PROJECT_DIR$/src/finData/Tricker.java" />
         <option value="$PROJECT_DIR$/src/test/finData/TrickerTest.java" />
+        <option value="$PROJECT_DIR$/src/finData/Quote.java" />
         <option value="$PROJECT_DIR$/src/finData/GetYahooData.java" />
+        <option value="$PROJECT_DIR$/src/test/finData/QuoteTest.java" />
       </list>
     </option>
   </component>
@@ -287,6 +290,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="finData" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -385,7 +392,7 @@
       <recent name="C:\Users\Xiliang\workspace\AlgoTrade\src" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TrickerTest">
+  <component name="RunManager" selected="JUnit.QuoteTest">
     <configuration default="false" name="GetYahooData" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="finData.GetYahooData" />
       <option name="VM_PARAMETERS" value="" />
@@ -408,12 +415,12 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="TrickerTest" type="JUnit" factoryName="JUnit" temporary="true">
+    <configuration default="false" name="QuoteTest" type="JUnit" factoryName="JUnit" temporary="true">
       <module name="AlgoTrade" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" value="" />
       <option name="PACKAGE_NAME" value="test.finData" />
-      <option name="MAIN_CLASS_NAME" value="test.finData.TrickerTest" />
+      <option name="MAIN_CLASS_NAME" value="test.finData.QuoteTest" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -526,11 +533,11 @@
     </configuration>
     <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Application.GetYahooData" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.TrickerTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.QuoteTest" />
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.TrickerTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.QuoteTest" />
         <item index="1" class="java.lang.String" itemvalue="Application.GetYahooData" />
       </list>
     </recent_temporary>
@@ -689,7 +696,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/finData/QueryDetail.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="29" selection-start="515" selection-end="515" vertical-scroll-proportion="0.0">
+        <state line="16" column="19" selection-start="515" selection-end="515" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -724,7 +731,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FinDAO/UpdateFinDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="22" selection-start="3689" selection-end="3689" vertical-scroll-proportion="0.0">
+        <state line="91" column="0" selection-start="3689" selection-end="3689" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -738,23 +745,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FinDAO/MongoDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="20" selection-start="452" selection-end="452" vertical-scroll-proportion="0.0">
+        <state line="20" column="17" selection-start="452" selection-end="452" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/finData/Tricker.java">
+    <entry file="file://$PROJECT_DIR$/src/finData/Quote.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="20" selection-start="567" selection-end="694" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/finData/TrickerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="139" column="74" selection-start="2972" selection-end="2972" vertical-scroll-proportion="0.0">
+        <state line="47" column="5" selection-start="1015" selection-end="1015" vertical-scroll-proportion="-1.98">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -763,7 +761,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/finData/GetYahooData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="429" selection-end="429" vertical-scroll-proportion="0.3340249">
+        <state line="17" column="37" selection-start="337" selection-end="337" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/finData/QuoteTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="129" column="45" selection-start="2770" selection-end="2770" vertical-scroll-proportion="0.900463">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
